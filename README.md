@@ -29,3 +29,17 @@ Full Example Workflow
 ## Kubernetes Network
 
 #### Container Communication 
+
+```
+            pod
+                my-app
+```
+
+> Why is a **Pod abstraction useful** ?
+
+> Container versus Pods
+
+> When are **multiple containers** necessary ?
+
+> How do containers communicate in a Pod ?
+
