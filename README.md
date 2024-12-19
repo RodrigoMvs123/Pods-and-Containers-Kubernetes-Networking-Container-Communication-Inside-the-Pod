@@ -43,4 +43,3 @@ Full Example Workflow
 
 > How do containers communicate in a Pod ?
 
-Rodrigo 
