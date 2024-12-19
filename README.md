@@ -26,4 +26,4 @@ Full Example Workflow
 #### Verify in browser
 > gh repo view my-new-project --web
 
-Rodrigo
+
