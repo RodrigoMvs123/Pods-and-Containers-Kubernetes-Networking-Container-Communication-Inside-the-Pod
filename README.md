@@ -43,3 +43,28 @@ Full Example Workflow
 
 > How do containers communicate in a Pod ?
 
+Pods - Solving the port allocation problem 
+
+Pod - Fundamental Concept 
+
+> Every Pod has a unique IP address
+
+> IP address reachable from all other Pods in the k8s cluster
+
+Container Port Mapping WITHOUT Pods
+
+> How to allocate ports without getting conflicts 
+
+> Bind host port to application port in container: 5432:5432 
+
+Prompt Command ( Terminal ) 
+```
+docker run -p 5000:5432 -e POSTGRES_PASSWORD=pwd postgres:9.6.17 
+> PostgreSQL init process complete: ready for start up
+
+docker ps
+> CONTAINER ID     IMAGE              COMMAND 
+  0cf1...          postgres:9.6.17    "docker_entrypoint..."
+  CREATED          STATUS           PORTS 
+  4 days ago       Up 11 seconds    0.0.0.0:5000->5432/tcp 
+
