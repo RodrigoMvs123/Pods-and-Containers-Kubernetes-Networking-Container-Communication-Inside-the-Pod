@@ -26,15 +26,4 @@ Full Example Workflow
 #### Verify in browser
 > gh repo view my-new-project --web
 
-## Kubernetes Networking 
-
-#### Container Communication 
-
-> Why is a **Pod abstraction useful** ?
-
-```
-                pod 
-                    my-app
-```
-
-
+## Kubernetes Network 
