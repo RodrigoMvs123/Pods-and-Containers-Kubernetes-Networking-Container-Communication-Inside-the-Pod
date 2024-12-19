@@ -1,5 +1,7 @@
 Pods and Containers Kubernetes Networking Container Communication Inside the Pod
 
+-  https://www.youtube.com/watch?v=5cNrTU6o3Fw 
+
 ## Github CLI Command Prompt
 Full Example Workflow
 
@@ -24,7 +26,4 @@ Full Example Workflow
 #### Verify in browser
 > gh repo view my-new-project --web
 
-
-
- https://www.youtube.com/watch?v=5cNrTU6o3Fw
 
