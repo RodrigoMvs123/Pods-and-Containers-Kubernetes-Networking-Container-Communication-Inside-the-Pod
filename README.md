@@ -24,14 +24,7 @@ Full Example Workflow
 #### Verify in browser
 > gh repo view my-new-project --web
 
-## Or Terminal in Visual Studio Code
 
-```
-cd C:\Users\Rodrigo\Desktop
-mkdir my-new-project
-code my-new-project
-```
 
  https://www.youtube.com/watch?v=5cNrTU6o3Fw
-
 
