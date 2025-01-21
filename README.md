@@ -94,6 +94,7 @@ Problem with container port mapping
 
 > containers can talk via localhost and port 
 
+Pod
 ```
 Pod
 
@@ -175,4 +176,101 @@ kubectl get pod
 
 > Helper or side application to your main application 
 
+- Back-up container 
+
+- Authentication 
+
+- Scheduler 
+
+- Synchronising
+
+Pod
+```
+Pod
+
+    main
+         helper 
+```
+
+#### How do Containers Communicate Inside the Pod ?
+
+Pod // Isolated Virtual Host 
+```
+Pod
+
+  Network Namespace 
+
+localhost:9000    localhost:8080
+```
+
+- Containers can talk via localhost and port
+
+#### MiniKube Cluster 
+
+nginx-sidecar-container.yaml
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx 
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx 
+    ports:
+    - containerPort: 80
+  - name: sidecar 
+    image: curlimages/curl
+    command: ["/bin/sh"]
+    args: ["-c", "echo Hello from the sidecar container; sleep 300"]
+```
+
+prompt command ( Terminal )
+
+```
+kubectl apply -f nginx-sidecar-container.yaml
+> pod/nginx created
+
+kubectl get pod
+> NAME    READY     STATUS    RESTARTS    AGE
+  nginx   2/2       Running   0           11s
+
+kubectl exec -it nginx -c sidecar -- /bin/sh 
+  \ netstat -ln 
+    > Active Internet connections (only servers)
+    > Proto Recv-Q Send-Q Local Address   Foreign Address      State
+    > tcp        0      0 0.0.0.0:80      0.0.0.0:*            LISTEN
+    Active UNIX domain sockets (only servers)
+    Proto RefCnt Flags Type State I-Node Path 
+
+  \ curl localhost:80
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+  \ exit
+```
 
