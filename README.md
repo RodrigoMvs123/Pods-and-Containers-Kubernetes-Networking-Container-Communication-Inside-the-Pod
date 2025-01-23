@@ -227,7 +227,7 @@ spec:
     args: ["-c", "echo Hello from the sidecar container; sleep 300"]
 ```
 
-prompt command ( Terminal )
+Prompt Command ( Terminal )
 
 ```
 kubectl apply -f nginx-sidecar-container.yaml
@@ -272,5 +272,33 @@ Commercial support is available at
 </html>
 
   \ exit
+
+kubectl logs nginx -c nginx-container 
+> 127.0.0.1 - - [01/Jan/2022:14:00:00 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.78.0" "-"
+  127.0.0.1 - - [01/Jan/2022:14:08:00 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.78.0" "-"
+  127.0.0.1 - - [01/Jan/2022:14:00:10 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.78.0" "-"
 ```
+
+#### Pause Container
+
+```
+Pod
+
+  Network Namespace 
+
+  main
+           pause
+```
+
+> "Pause" container in each Pod
+
+> Also called "sand-box" container 
+
+> Reserves and holds network namespace (nets)
+
+> Enables communication between containers in the Pod
+
+- If a container dies and a new one is created the Pod will maintain the same IP address
+
+- If a Pod dies and a new one is created the IP address will change
 
