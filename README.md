@@ -302,3 +302,34 @@ Pod
 
 - If a Pod dies and a new one is created the IP address will change
 
+Command Prompt ( Terminal )
+
+```
+echo $(minikube docker-env) 
+> export DOCKER_TLS_VERIFY="1"
+  export DOCKER_HOST="tcp://192.168.64.5:2376" 
+  export DOCKER_CERT_PATH="/Users/Rodrigomvs123/.minikube/certs" 
+  # Run this command to configure your shell:
+  # eval $(minikube docker-env)
+
+kubectl describe pod nginx
+> Name:         nginx
+  Namespace:    default
+  Priority:     0
+  Node:         minikube/192.168.64.5
+  Start Time:   Sat, 01 Jan 2022 14:00:00 +0000
+  Labels:       app=nginx
+  Annotations:  <none>
+
+eval $(minikube docker-env)
+docker ps 
+> CONTAINER ID     IMAGE              COMMAND 
+  0cf1...          nginx:latest       "/docker-entrypoint..."
+  2ce4...          curlimages/curl    "/bin/sh -c 'echo H..."
+  CREATED          STATUS           PORTS 
+  4 days ago       Up 11 seconds
+
+docker ps | grep k8s_POD_nginx
+> 2ce4...          k8s_POD_nginx.rodri...   "/pause"
+  4 days ago       Up 11 seconds
+
