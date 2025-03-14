@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  #game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+  }
+  
+  canvas {
+    display: block;
+  }

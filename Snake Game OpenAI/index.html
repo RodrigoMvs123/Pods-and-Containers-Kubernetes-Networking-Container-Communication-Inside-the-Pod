@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Instruction Panel -->
+    <div class="info-panel">
+        <h1>Snake Game</h1>
+        <p><b>Controls:</b></p>
+        <ul>
+            <li>Use the Arrow Keys on your keyboard OR click the arrows below to control the snake.</li>
+            <li><b>Goal:</b> Collect the red squares and avoid hitting walls or yourself!</li>
+        </ul>
+    </div>
+
+    <!-- Game Board -->
+    <div class="game-board" id="gameBoard"></div>
+
+    <!-- Onscreen Arrow Buttons -->
+    <div class="controls">
+        <button id="up" class="control-button">▲</button>
+        <div class="middle-buttons">
+            <button id="left" class="control-button">◀</button>
+            <button id="down" class="control-button">▼</button>
+            <button id="right" class="control-button">▶</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
